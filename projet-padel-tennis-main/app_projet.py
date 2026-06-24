@@ -371,7 +371,7 @@ if chiffres_padel_tennis is not None:
                     draw_until(y)
                     time.sleep(0.6)
                     if y != years[-1]:
-                        st.experimental_rerun()
+                        st.rerun()
             else:
                 draw_until(year)
     else:

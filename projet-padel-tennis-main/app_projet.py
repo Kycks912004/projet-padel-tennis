@@ -22,12 +22,12 @@ st.title("🎾 Projet Padel/Tennis — Transposition Notebook → Streamlit")
 # =========================
 with st.sidebar:
     st.header("📂 Chemins CSV")
-    data_es_path = st.text_input("Équipements (clean)", "data/data_es_clean.csv")
-    dvf_idf_path = st.text_input("DVF communes IDF", "data/dvf_communes_2024_idf.csv")
-    lic_path     = st.text_input("Licences Tennis IDF", "data/lic_2022_tennis_idf.csv")
-    geo_path     = st.text_input("Géographie FR", "data/geographie.csv")
-    com_path     = st.text_input("Communes France (clean)", "data/communes_france_clean.csv")
-    chiffres_path= st.text_input("Chiffres Tennis/Padel FR", "data/ChiffresPadelTennis.csv")
+    data_es_path = st.text_input("Équipements (clean)", "projet-padel-tennis-main/data/data_es_clean.csv")
+    dvf_idf_path = st.text_input("DVF communes IDF", "projet-padel-tennis-main/data/dvf_communes_2024_idf.csv")
+    lic_path     = st.text_input("Licences Tennis IDF", "projet-padel-tennis-main/data/lic_2022_tennis_idf.csv")
+    geo_path     = st.text_input("Géographie FR", "projet-padel-tennis-main/data/geographie.csv")
+    com_path     = st.text_input("Communes France (clean)", "projet-padel-tennis-main/data/communes_france_clean.csv")
+    chiffres_path= st.text_input("Chiffres Tennis/Padel FR", "projet-padel-tennis-main/data/ChiffresPadelTennis.csv")
     st.caption("💡 Adapte si besoin. Les colonnes attendues sont celles de ton notebook.")
 
 def load_csv(path, sep=";"):

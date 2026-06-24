@@ -22,12 +22,12 @@ st.title("🎾 Projet Padel/Tennis — Transposition Notebook → Streamlit")
 # =========================
 with st.sidebar:
     st.header("📂 Chemins CSV")
-    data_es_path = st.text_input("Équipements (clean)", "data/data_es_clean.csv")
-    dvf_idf_path = st.text_input("DVF communes IDF", "data/dvf_communes_2024_idf.csv")
-    lic_path     = st.text_input("Licences Tennis IDF", "data/lic_2022_tennis_idf.csv")
-    geo_path     = st.text_input("Géographie FR", "data/geographie.csv")
-    com_path     = st.text_input("Communes France (clean)", "data/communes_france_clean.csv")
-    chiffres_path= st.text_input("Chiffres Tennis/Padel FR", "data/ChiffresPadelTennis.csv")
+    data_es_path = st.text_input("Équipements (clean)", "projet-padel-tennis-main/data/data_es_clean.csv")
+    dvf_idf_path = st.text_input("DVF communes IDF", "projet-padel-tennis-main/data/dvf_communes_2024_idf.csv")
+    lic_path     = st.text_input("Licences Tennis IDF", "projet-padel-tennis-main/data/lic_2022_tennis_idf.csv")
+    geo_path     = st.text_input("Géographie FR", "projet-padel-tennis-main/data/geographie.csv")
+    com_path     = st.text_input("Communes France (clean)", "projet-padel-tennis-main/data/communes_france_clean.csv")
+    chiffres_path= st.text_input("Chiffres Tennis/Padel FR", "projet-padel-tennis-main/data/ChiffresPadelTennis.csv")
     st.caption("💡 Adapte si besoin. Les colonnes attendues sont celles de ton notebook.")
 
 def load_csv(path, sep=";"):
@@ -342,38 +342,24 @@ if chiffres_padel_tennis is not None:
 
         years = dfp["Annee"].tolist()
         if years:
-            c1, c2 = st.columns([3,1])
-            with c1:
-                year = st.slider("Année", min_value=int(years[0]), max_value=int(years[-1]), value=int(years[0]), step=1)
-            with c2:
-                autoplay = st.checkbox("Lecture auto", value=False)
+            year = st.slider("Année", min_value=int(years[0]), max_value=int(years[-1]), value=int(years[-1]), step=1)
 
-            def draw_until(cutoff):
-                d = dfp[dfp["Annee"] <= cutoff]
-                fig, ax = plt.subplots(figsize=(7,4))
-                ax.plot(d["Annee"], d["Padel_FR"], marker="o", linewidth=2, label="PADEL Pratiquants")
-                ax.fill_between(d["Annee"], d["Padel_FR"], step="pre", alpha=0.2)
-                ax.set_xlabel("Année")
-                ax.set_ylabel("Nombre de pratiquants Padel (FR)")
-                ax.set_title(f"PADEL — progression des pratiquants jusqu’à {cutoff}")
-                ax.grid(True, linestyle="--", alpha=0.4)
-                ax.legend()
-                if len(d) > 0:
-                    ax.annotate(f"{int(d['Padel_FR'].iloc[-1]):,}".replace(",", " "),
-                                xy=(d["Annee"].iloc[-1], d["Padel_FR"].iloc[-1]),
-                                xytext=(0, 8), textcoords="offset points",
-                                ha="center", va="bottom", fontsize=9)
-                plt.tight_layout()
-                st.pyplot(fig)
-
-            if autoplay:
-                for y in years:
-                    draw_until(y)
-                    time.sleep(0.6)
-                    if y != years[-1]:
-                        st.experimental_rerun()
-            else:
-                draw_until(year)
+            d = dfp[dfp["Annee"] <= year]
+            fig, ax = plt.subplots(figsize=(8, 4))
+            ax.plot(d["Annee"], d["Padel_FR"], marker="o", linewidth=2, color="#6366f1", label="PADEL Pratiquants")
+            ax.fill_between(d["Annee"], d["Padel_FR"], alpha=0.2, color="#6366f1")
+            ax.set_xlabel("Année")
+            ax.set_ylabel("Nombre de pratiquants Padel (FR)")
+            ax.set_title(f"PADEL — progression des pratiquants jusqu’à {year}")
+            ax.grid(True, linestyle="--", alpha=0.4)
+            ax.legend()
+            if len(d) > 0:
+                ax.annotate(f"{int(d[‘Padel_FR’].iloc[-1]):,}".replace(",", " "),
+                            xy=(d["Annee"].iloc[-1], d["Padel_FR"].iloc[-1]),
+                            xytext=(0, 8), textcoords="offset points",
+                            ha="center", va="bottom", fontsize=9)
+            plt.tight_layout()
+            st.pyplot(fig)
     else:
         st.info("Colonnes 'Annee' et/ou 'Padel_FR' manquantes dans le CSV.")
 

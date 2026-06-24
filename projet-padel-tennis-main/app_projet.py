@@ -1,4 +1,4 @@
-# app_projet.py — Transposition 1:1 de ton notebook en Streamlit (une seule page)
+﻿# app_projet.py — Transposition 1:1 de ton notebook en Streamlit (une seule page)
 # Nécessite: pip install streamlit folium streamlit-folium
 
 import time
@@ -319,7 +319,7 @@ if chiffres_padel_tennis is not None:
         st.pyplot(fig)
 
 # =========================
-# Cellule 4 — Progression Padel_FR jusqu’à l’année choisie (slider + lecture auto)
+# Cellule 4 — Progression Padel_FR jusqu'à l'année choisie (slider + lecture auto)
 # =========================
 st.markdown("## ▶️ Progression des pratiquants PADEL (FR) — lecture par année")
 if chiffres_padel_tennis is not None:
@@ -350,11 +350,11 @@ if chiffres_padel_tennis is not None:
             ax.fill_between(d["Annee"], d["Padel_FR"], alpha=0.2, color="#6366f1")
             ax.set_xlabel("Année")
             ax.set_ylabel("Nombre de pratiquants Padel (FR)")
-            ax.set_title(f"PADEL — progression des pratiquants jusqu’à {year}")
+            ax.set_title(f"PADEL — progression des pratiquants jusqu'à {year}")
             ax.grid(True, linestyle="--", alpha=0.4)
             ax.legend()
             if len(d) > 0:
-                ax.annotate(f"{int(d[‘Padel_FR’].iloc[-1]):,}".replace(",", " "),
+                ax.annotate(f"{int(d['Padel_FR'].iloc[-1]):,}".replace(",", " "),
                             xy=(d["Annee"].iloc[-1], d["Padel_FR"].iloc[-1]),
                             xytext=(0, 8), textcoords="offset points",
                             ha="center", va="bottom", fontsize=9)

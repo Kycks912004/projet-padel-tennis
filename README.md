@@ -1,4 +1,6 @@
-[![Voir le code](https://img.shields.io/badge/Python-Voir%20app__projet.py-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://github.com/Kycks912004/projet-padel-tennis/blob/main/projet-padel-tennis-main/app_projet.py)
+[![Voir le code](https://img.shields.io/badge/Python-app__projet.py-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://github.com/Kycks912004/projet-padel-tennis/blob/main/projet-padel-tennis-main/app_projet.py)
+[![Données DVF](https://img.shields.io/badge/Data-DVF%20Île--de--France-orange?style=for-the-badge&logo=files&logoColor=white)](https://github.com/Kycks912004/projet-padel-tennis/tree/main/projet-padel-tennis-main/data)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?style=for-the-badge&logo=github)](https://github.com/Kycks912004/projet-padel-tennis)
 
 # 🎾 Analyse Immobilière & Sportive : Complexes de Padel & Tennis
 **Projet Data Science - ECE Paris (ING4)**
@@ -32,7 +34,34 @@ Ce projet a pour objectif d'accompagner un investisseur immobilier dans le secte
 2.  **Application_Investisseur.ipynb** : Notebook interactif final pour le persona.
 3.  **Data/** : Dossier contenant les fichiers CSV et TXT utilisés (hors sources brutes volumineuses).
 
-## 👥 Équipe de Projet 
+## 📂 Données utilisées
+
+| Fichier | Description | Aperçu |
+|---------|-------------|--------|
+| [`dvf_communes_2024_idf.csv`](https://github.com/Kycks912004/projet-padel-tennis/blob/main/projet-padel-tennis-main/data/dvf_communes_2024_idf.csv) | Prix au m² par commune en Île-de-France (DVF 2024) | `insee_com`, `prix_m2_moyen`, `nb_mutations` |
+| [`data_es_clean.csv`](https://github.com/Kycks912004/projet-padel-tennis/blob/main/projet-padel-tennis-main/data/data_es_clean.csv) | Équipements sportifs en France (type, commune, coordonnées GPS) | `Nom`, `Type`, `Longitude`, `Latitude` |
+| [`lic_2022_tennis_idf.csv`](https://github.com/Kycks912004/projet-padel-tennis/blob/main/projet-padel-tennis-main/data/lic_2022_tennis_idf.csv) | Licenciés tennis Île-de-France 2022 par commune et tranche d'âge | `commune`, `total_f`, `total_h`, `total` |
+| [`communes_france_clean.csv`](https://github.com/Kycks912004/projet-padel-tennis/blob/main/projet-padel-tennis-main/data/communes_france_clean.csv) | Données démographiques des communes (population, densité, région) | `population`, `densite`, `latitude_mairie` |
+| [`geographie.csv`](https://github.com/Kycks912004/projet-padel-tennis/blob/main/projet-padel-tennis-main/data/geographie.csv) | Coordonnées GPS des terrains de tennis et padel | `commune`, `latitude`, `longitude`, `sport` |
+| [`ChiffresPadelTennis.csv`](https://github.com/Kycks912004/projet-padel-tennis/blob/main/projet-padel-tennis-main/data/ChiffresPadelTennis.csv) | Évolution nationale licences & terrains Padel/Tennis (2017–) | `Annee`, `LicenceTennis_FR`, `Padel_FR` |
+
+**Aperçu `ChiffresPadelTennis.csv` :**
+
+| Année | Licences Tennis FR | Padel FR | Terrains Tennis | Terrains Padel |
+|-------|--------------------|----------|----------------|----------------|
+| 2017 | 1 018 721 | 120 000 | 31 805 | 295 |
+| 2018 | 985 551 | 180 000 | 31 990 | 639 |
+
+**Aperçu `dvf_communes_2024_idf.csv` :**
+
+| insee_com | nb_mutations | prix_m2_moyen | surface_moy | dep_code |
+|-----------|-------------|--------------|-------------|----------|
+| 75056 | 24 246 | 9 674 € | 51 m² | 75 |
+| 77001 | 17 | 2 956 € | 122 m² | 77 |
+
+---
+
+## 👥 Équipe de Projet
 * **PINTO Kylian**
 * **DAVIDSON Matt**
 * **TOUVRON Erwan**

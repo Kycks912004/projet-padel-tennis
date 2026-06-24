@@ -48,6 +48,15 @@ Ce projet a pour objectif d'accompagner un investisseur immobilier dans le secte
 ### Prix au m² par département — Île-de-France (DVF 2024)
 ![Prix DVF IDF](graphs/graph4_dvf_dep.png)
 
+### Carte — Terrains Padel & Tennis en Île-de-France
+![Carte IDF](graphs/map1_idf_points.png)
+
+### Carte — Terrains Padel & Tennis en France métropolitaine
+![Carte France](graphs/map2_france.png)
+
+### Carte — Prix au m² par commune (DVF 2024)
+![Carte DVF communes](graphs/map3_dvf_communes.png)
+
 ---
 
 ## 📂 Données utilisées

@@ -34,6 +34,22 @@ Ce projet a pour objectif d'accompagner un investisseur immobilier dans le secte
 2.  **Application_Investisseur.ipynb** : Notebook interactif final pour le persona.
 3.  **Data/** : Dossier contenant les fichiers CSV et TXT utilisés (hors sources brutes volumineuses).
 
+## 📊 Visualisations
+
+### Évolution des licences & terrains — Tennis vs Padel (France)
+![Licences et terrains](graphs/graph1_licences_terrains.png)
+
+### Progression des pratiquants Padel en France
+![Progression Padel](graphs/graph2_padel_progression.png)
+
+### Licences par terrain — Tennis vs Padel
+![Ratio licences/terrain](graphs/graph3_ratio.png)
+
+### Prix au m² par département — Île-de-France (DVF 2024)
+![Prix DVF IDF](graphs/graph4_dvf_dep.png)
+
+---
+
 ## 📂 Données utilisées
 
 | Fichier | Description | Aperçu |

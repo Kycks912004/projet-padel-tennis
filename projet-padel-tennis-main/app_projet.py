@@ -462,8 +462,8 @@ if geo_file is not None:
 # =========================
 st.markdown("## 🧱 IDF — Nombre de points par département (Padel/Tennis)")
 def normalize_name(s: pd.Series) -> pd.Series:
-    s = pd.Series(s.values, dtype=object).fillna("").astype(str).str.strip().str.lower()
-    s = s.apply(lambda x: unicodedata.normalize("NFKD", str(x)).encode("ascii", "ignore").decode("utf-8"))
+    s = s.astype(str).str.strip().str.lower()
+    s = s.apply(lambda x: unicodedata.normalize("NFKD", "" if pd.isna(x) else x).encode("ascii", "ignore").decode("utf-8"))
     s = s.str.replace(r"\s+", " ", regex=True)
     return s
 
@@ -535,8 +535,8 @@ if (geo_file is not None) and (communes is not None):
             geo[c] = pd.to_numeric(geo[c], errors="coerce")
 
     def normalize_name2(s: pd.Series) -> pd.Series:
-        s = pd.Series(s.values, dtype=object).fillna("").astype(str).str.strip().str.lower()
-        s = s.apply(lambda x: unicodedata.normalize("NFKD", str(x)).encode("ascii","ignore").decode("utf-8"))
+        s = s.astype(str).str.strip().str.lower()
+        s = s.apply(lambda x: unicodedata.normalize("NFKD", "" if pd.isna(x) else x).encode("ascii","ignore").decode("utf-8"))
         return s.str.replace(r"\s+", " ", regex=True)
 
     geo["commune_norm"] = normalize_name2(geo["commune"])
